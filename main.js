@@ -13,6 +13,8 @@ import {
 } from '@ctrip/crn';
 
 import page1 from './src/Page1.js';
+import Demo2 from './src/Demo2.js';
+import ErrorBoxDemo from './src/ErrorBoxDemo.js';
 import imageOverlayTest from './src/imageOverlayTest.js';
 
 const pages = [
@@ -22,9 +24,19 @@ const pages = [
 	    // isInitialPage:true
 	},
 	{
+	    component:Demo2,
+	    name:'Demo2',
+	    // isInitialPage:true
+	},
+	{
+	    component:ErrorBoxDemo,
+	    name:'ErrorBoxDemo',
+	    isInitialPage:true
+	},
+	{
 	    component:imageOverlayTest,
 		name:'imageOverlayTest',
-		isInitialPage:true
+		// isInitialPage:true
 	}
 ];
 

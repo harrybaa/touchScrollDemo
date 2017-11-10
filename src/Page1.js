@@ -28,36 +28,9 @@ import {
 
 import _ from 'underscore';
 
+import DragableScroller from './component/DragableScroller.js'
+
 const {windowWidth, windowHeight} = Dimensions.get('window');
-
-class AAbb extends Component {
-	render () {
-        return (
-			<View>
-            <MapView.ImageOverlay 
-			transparency={0.3} 
-			imageRegion={{
-				latitude: 39.9385466,
-				longitude: 116.1172793,latitudeDelta: 90,longitudeDelta: 60}} 
-				image={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Dolphind.jpg/200px-Dolphind.jpg'}
-				/>
-			</View>
-        )
-    }
-}
-
-class Marks extends Component {
-	render () {
-		return (
-			<MapView.Marker
-				coordinate={{
-					latitude: 39.9385466,
-					longitude: 116.1172793
-				}}
-			/>
-		)
-	}
-}
 
 export default class Page1 extends Page {
 
@@ -67,8 +40,7 @@ export default class Page1 extends Page {
 		this.touchableBar = null; // Scroll View controler bar
 
 		this.state = {
-			scrollerOffset: new Animated.Value(0),
-			isHideOverlay: false
+			scrollerOffset: new Animated.Value(0)
 		};
 
 		this._previousHeightOffset = 350;
@@ -112,22 +84,6 @@ export default class Page1 extends Page {
 							longitudeDelta: 60,
 						}}
 					>
-						{ isHideOverlay ? null :
-							<Marks/>
-						}
-
-						{ isHideOverlay ? null :
-							<MapView.ImageOverlay
-								imageRegion={{
-									latitude: 39.9385466,
-									longitude: 116.1172793,
-									latitudeDelta: 90,
-									longitudeDelta: 60
-								}}
-								transparency={0.5}
-								image={'http://file.veryzhun.com/buckets/weather/keys/82d549d7c6788d161be11ce351497f4c.png'}
-							/>
-						}
 
 					</MapView>
 
@@ -143,7 +99,7 @@ export default class Page1 extends Page {
 						style={[styles.touchableBar]}
 						ref={ ref => {this.touchableBar = ref} }
 					>
-						<Text onPress={this.changeOverlay.bind(this)}>ooooooooooooTouch Me! Drag Me!oooooooooooo</Text>
+						<Text>ooooooooooooTouch Me! Drag Me!oooooooooooo</Text>
 					</View>
 
 					<ScrollView style={[styles.scrollViewWrapper]}>
